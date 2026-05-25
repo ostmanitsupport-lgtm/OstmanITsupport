@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -46,8 +47,6 @@
       width:min(1200px,90%);
       margin:auto;
     }
-
-    /* NAVBAR */
 
     nav{
       position:fixed;
@@ -99,7 +98,6 @@
       text-decoration:none;
       color:#d1d5db;
       transition:.3s;
-      position:relative;
     }
 
     .nav-links a:hover{
@@ -114,7 +112,6 @@
       text-decoration:none;
       font-weight:600;
       transition:.3s ease;
-      box-shadow:0 0 0 rgba(37,99,255,0);
     }
 
     .nav-button:hover{
@@ -122,13 +119,10 @@
       box-shadow:0 0 25px rgba(37,99,255,.55);
     }
 
-    /* HERO */
-
     .hero{
       min-height:100vh;
       display:flex;
       align-items:center;
-      position:relative;
     }
 
     .hero-content{
@@ -184,7 +178,6 @@
     .btn-primary{
       background:var(--blue);
       color:white;
-      box-shadow:0 0 0 rgba(37,99,255,0);
     }
 
     .btn-primary:hover{
@@ -210,8 +203,6 @@
       color:#cbd5e1;
     }
 
-    /* SECTION */
-
     section{
       padding:120px 0;
     }
@@ -232,8 +223,6 @@
       margin:auto;
       line-height:1.8;
     }
-
-    /* CARDS */
 
     .grid{
       display:grid;
@@ -295,8 +284,6 @@
       color:var(--muted);
       line-height:1.8;
     }
-
-    /* ABOUT */
 
     .about{
       display:grid;
@@ -360,8 +347,6 @@
       border:2px solid var(--blue);
     }
 
-    /* CONTACT */
-
     .contact-cards{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -393,14 +378,28 @@
       font-weight:600;
     }
 
+    input,
+    textarea{
+      width:100%;
+      padding:20px;
+      border-radius:18px;
+      border:1px solid #13203b;
+      background:#071225;
+      color:white;
+      font-size:1rem;
+      outline:none;
+    }
+
+    textarea{
+      resize:none;
+    }
+
     footer{
       padding:40px 0;
       text-align:center;
       color:#6b7280;
       border-top:1px solid rgba(255,255,255,0.05);
     }
-
-    /* ANIMATION */
 
     @keyframes fadeUp{
       from{
@@ -423,8 +422,6 @@
       opacity:1;
       transform:translateY(0);
     }
-
-    /* MOBILE */
 
     @media(max-width:900px){
 
@@ -460,6 +457,7 @@
 
       <div class="nav-links">
         <a href="#services">Tjänster</a>
+        <a href="#pricing">Priser</a>
         <a href="#about">Om oss</a>
         <a href="#contact">Kontakt</a>
         <a href="#contact" class="nav-button">Kontakta oss</a>
@@ -467,8 +465,6 @@
 
     </div>
   </nav>
-
-  <!-- HERO -->
 
   <section class="hero">
     <div class="container">
@@ -480,23 +476,22 @@
         </div>
 
         <h1>
-          IT-lösningar som
-          <span>förenklar</span>
-          din vardag
+          Teknikhjälp som
+          <span>fungerar</span>
         </h1>
 
         <p>
-          Östman IT hjälper dig med felsökning, nätverk,
-          datorbyggen och IT-support. Vi gör tekniken enkel.
+          Östman IT hjälper dig med långsamma datorer, nätverksproblem,
+          uppgraderingar, gaming-PCs och IT-support i Örebro.
         </p>
 
         <div class="hero-buttons">
           <a href="#contact" class="btn btn-primary">
-            Kom igång
+            Få hjälp idag
           </a>
 
           <a href="#services" class="btn btn-secondary">
-            Se våra tjänster
+            Våra tjänster
           </a>
         </div>
 
@@ -511,16 +506,15 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-
   <section id="services">
 
     <div class="container">
 
       <div class="section-title reveal">
         <h2>Tjänster</h2>
+
         <p>
-          Vi erbjuder professionell IT-support för både företag och privatpersoner.
+          Vi hjälper privatpersoner och småföretag med snabb och personlig IT-support.
         </p>
       </div>
 
@@ -528,49 +522,55 @@
 
         <div class="card reveal">
           <div class="icon">🔧</div>
-          <h3>Felsökning & Reparation</h3>
+          <h3>Felsökning</h3>
+
           <p>
-            Vi löser problem med datorer, skrivare och annan IT-utrustning snabbt och effektivt.
+            Problem med datorn, program eller hårdvara? Vi hjälper dig snabbt.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">💾</div>
+          <h3>SSD & Uppgraderingar</h3>
+
+          <p>
+            Gör din dator snabbare med SSD, RAM och andra uppgraderingar.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">🎮</div>
+          <h3>Gaming-PC</h3>
+
+          <p>
+            Bygge, optimering och hjälp med gamingdatorer.
           </p>
         </div>
 
         <div class="card reveal">
           <div class="icon">📶</div>
-          <h3>Nätverk & Wi-Fi</h3>
+          <h3>Wi-Fi & Router</h3>
+
           <p>
-            Installation och optimering av router, Wi-Fi och nätverk hemma eller på kontor.
+            Hjälp med internet, nätverk och dålig täckning hemma.
           </p>
         </div>
 
         <div class="card reveal">
-          <div class="icon">🛡</div>
-          <h3>IT-säkerhet</h3>
-          <p>
-            Skydda dina enheter med antivirus, säkerhetskontroller och backup-lösningar.
-          </p>
-        </div>
+          <div class="icon">🧹</div>
+          <h3>Virusrensning</h3>
 
-        <div class="card reveal">
-          <div class="icon">☁</div>
-          <h3>Molntjänster</h3>
           <p>
-            Hjälp med Microsoft 365, Google Workspace och säker lagring i molnet.
+            Rensning av virus och optimering av långsamma datorer.
           </p>
         </div>
 
         <div class="card reveal">
           <div class="icon">🖥</div>
           <h3>Fjärrsupport</h3>
-          <p>
-            Snabb hjälp direkt på distans utan att du behöver lämna hemmet.
-          </p>
-        </div>
 
-        <div class="card reveal">
-          <div class="icon">💾</div>
-          <h3>Hårdvara & Uppgraderingar</h3>
           <p>
-            SSD-byten, RAM-uppgraderingar och hjälp att välja rätt datorutrustning.
+            Få hjälp direkt på distans utan att lämna hemmet.
           </p>
         </div>
 
@@ -580,7 +580,99 @@
 
   </section>
 
-  <!-- ABOUT -->
+  <section id="pricing">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+        <h2>Priser</h2>
+
+        <p>
+          Tydliga priser utan krångel.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <div class="card reveal">
+          <div class="icon">💻</div>
+          <h3>Felsökning</h3>
+
+          <p>
+            Från 499 kr
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">⚡</div>
+          <h3>SSD & Uppgraderingar</h3>
+
+          <p>
+            Från 699 kr
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">🛠</div>
+          <h3>Datorbyggen</h3>
+
+          <p>
+            Från 1499 kr
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="problems">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+        <h2>Vanliga problem vi löser</h2>
+
+        <p>
+          Vanliga teknikproblem som vi hjälper till med varje dag.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <div class="card reveal">
+          <div class="icon">🐌</div>
+          <h3>Långsam dator</h3>
+
+          <p>
+            Vi optimerar och uppgraderar din dator så den känns snabb igen.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">📡</div>
+          <h3>Wi-Fi fungerar inte</h3>
+
+          <p>
+            Problem med internet eller router? Vi hjälper dig.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">💾</div>
+          <h3>Flytta filer</h3>
+
+          <p>
+            Hjälp att flytta filer till ny dator säkert.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
 
   <section id="about">
 
@@ -604,8 +696,7 @@
         </h2>
 
         <p>
-          Östman IT hjälper privatpersoner och småföretag
-          med snabb, personlig och pålitlig IT-support.
+          Vi hjälper privatpersoner och småföretag med snabb och pålitlig IT-support i Örebro.
         </p>
 
         <div class="check-list">
@@ -625,11 +716,6 @@
             Lokal hjälp i Örebro
           </div>
 
-          <div class="check">
-            <div class="check-circle"></div>
-            Flexibla lösningar
-          </div>
-
         </div>
 
       </div>
@@ -638,7 +724,39 @@
 
   </section>
 
-  <!-- CONTACT -->
+  <section id="location">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+        <h2>Vi finns i Örebro</h2>
+
+        <p>
+          Lokal IT-support i Örebro med omnejd.
+        </p>
+      </div>
+
+      <div class="reveal" style="
+        border-radius:30px;
+        overflow:hidden;
+        border:1px solid #13203b;
+        box-shadow:0 0 40px rgba(37,99,255,.12);
+      ">
+
+        <iframe
+          src="https://www.google.com/maps?q=Örebro&output=embed"
+          width="100%"
+          height="500"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+
+      </div>
+
+    </div>
+
+  </section>
 
   <section id="contact">
 
@@ -670,6 +788,32 @@
         </div>
 
       </div>
+
+      <form class="reveal" style="
+        max-width:800px;
+        margin:60px auto 0;
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+      ">
+
+        <input type="text" placeholder="Ditt namn">
+        <input type="email" placeholder="Din e-post">
+
+        <textarea rows="6" placeholder="Beskriv problemet..."></textarea>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          style="
+            border:none;
+            cursor:pointer;
+            width:fit-content;
+          ">
+          Skicka förfrågan
+        </button>
+
+      </form>
 
     </div>
 
