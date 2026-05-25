@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Östman IT</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    :root{
+      --bg:#030712;
+      --card:#071225;
+      --border:#13203b;
+      --blue:#2563ff;
+      --text:#ffffff;
+      --muted:#9ca3af;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+      radial-gradient(circle at top left, rgba(37,99,255,0.15), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(37,99,255,0.08), transparent 30%);
+      z-index:-1;
+    }
+
+    .container{
+      width:min(1200px,90%);
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:999;
+      backdrop-filter:blur(12px);
+      background:rgba(3,7,18,0.65);
+      border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:1.4rem;
+      font-weight:700;
+    }
+
+    .logo-icon{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--blue),#1d4ed8);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 0 25px rgba(37,99,255,.4);
+    }
+
+    .logo span{
+      color:var(--blue);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:35px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#d1d5db;
+      transition:.3s;
+      position:relative;
+    }
+
+    .nav-links a:hover{
+      color:white;
+    }
+
+    .nav-button{
+      padding:14px 24px;
+      background:var(--blue);
+      border-radius:14px;
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      transition:.3s ease;
+      box-shadow:0 0 0 rgba(37,99,255,0);
+    }
+
+    .nav-button:hover{
+      transform:translateY(-2px);
+      box-shadow:0 0 25px rgba(37,99,255,.55);
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+    }
+
+    .hero-content{
+      max-width:700px;
+      animation:fadeUp 1s ease;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(37,99,255,.1);
+      border:1px solid rgba(37,99,255,.2);
+      padding:12px 20px;
+      border-radius:999px;
+      margin-bottom:30px;
+      color:#7aa2ff;
+    }
+
+    h1{
+      font-size:clamp(3rem,8vw,6rem);
+      line-height:1;
+      margin-bottom:30px;
+      font-weight:800;
+    }
+
+    h1 span{
+      color:var(--blue);
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1.2rem;
+      line-height:1.8;
+      margin-bottom:40px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:50px;
+    }
+
+    .btn{
+      padding:18px 32px;
+      border-radius:18px;
+      text-decoration:none;
+      font-weight:600;
+      transition:.35s ease;
+    }
+
+    .btn-primary{
+      background:var(--blue);
+      color:white;
+      box-shadow:0 0 0 rgba(37,99,255,0);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-4px);
+      box-shadow:0 0 30px rgba(37,99,255,.55);
+    }
+
+    .btn-secondary{
+      border:1px solid var(--border);
+      color:white;
+      background:rgba(255,255,255,0.02);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.06);
+      transform:translateY(-4px);
+    }
+
+    .hero-info{
+      display:flex;
+      gap:30px;
+      flex-wrap:wrap;
+      color:#cbd5e1;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:120px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:80px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      margin-bottom:20px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    /* CARDS */
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:linear-gradient(180deg,#071225,#040b18);
+      border:1px solid var(--border);
+      border-radius:30px;
+      padding:40px;
+      transition:.4s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      width:200px;
+      height:200px;
+      background:rgba(37,99,255,.08);
+      border-radius:50%;
+      top:-100px;
+      right:-100px;
+      transition:.5s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:rgba(37,99,255,.5);
+      box-shadow:0 0 35px rgba(37,99,255,.12);
+    }
+
+    .card:hover::before{
+      transform:scale(1.4);
+    }
+
+    .icon{
+      width:70px;
+      height:70px;
+      border-radius:22px;
+      background:rgba(37,99,255,.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      margin-bottom:30px;
+      color:var(--blue);
+    }
+
+    .card h3{
+      font-size:1.8rem;
+      margin-bottom:18px;
+    }
+
+    .card p{
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:80px;
+      align-items:center;
+    }
+
+    .about-box{
+      height:500px;
+      border-radius:40px;
+      background:linear-gradient(145deg,#071225,#091933);
+      border:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+    }
+
+    .about-logo{
+      width:120px;
+      height:120px;
+      background:rgba(37,99,255,.12);
+      border-radius:30px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:3rem;
+      font-weight:800;
+      color:var(--blue);
+      margin-bottom:30px;
+    }
+
+    .about-text h2{
+      font-size:3.2rem;
+      margin-bottom:30px;
+    }
+
+    .about-text p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:30px;
+    }
+
+    .check-list{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .check{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .check-circle{
+      width:24px;
+      height:24px;
+      border-radius:50%;
+      border:2px solid var(--blue);
+    }
+
+    /* CONTACT */
+
+    .contact-cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+      margin-top:60px;
+    }
+
+    .contact-card{
+      padding:40px;
+      border-radius:28px;
+      border:1px solid var(--border);
+      background:#071225;
+      transition:.4s;
+    }
+
+    .contact-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 0 25px rgba(37,99,255,.15);
+    }
+
+    .contact-card h4{
+      color:#94a3b8;
+      margin-bottom:15px;
+      font-weight:500;
+    }
+
+    .contact-card p{
+      font-size:1.3rem;
+      font-weight:600;
+    }
+
+    footer{
+      padding:40px 0;
+      text-align:center;
+      color:#6b7280;
+      border-top:1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(60px);
+      transition:1s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      .nav-links{
+        display:none;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:4rem;
+      }
+
+      .about-text h2{
+        font-size:2.5rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-content">
+
+      <div class="logo">
+        <div class="logo-icon">🖥</div>
+        Östman <span>IT</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#services">Tjänster</a>
+        <a href="#about">Om oss</a>
+        <a href="#contact">Kontakt</a>
+        <a href="#contact" class="nav-button">Kontakta oss</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="badge">
+          ● IT-support för företag & privatpersoner
+        </div>
+
+        <h1>
+          IT-lösningar som
+          <span>förenklar</span>
+          din vardag
+        </h1>
+
+        <p>
+          Östman IT hjälper dig med felsökning, nätverk,
+          datorbyggen och IT-support. Vi gör tekniken enkel.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">
+            Kom igång
+          </a>
+
+          <a href="#services" class="btn btn-secondary">
+            Se våra tjänster
+          </a>
+        </div>
+
+        <div class="hero-info">
+          <span>🔒 Säker IT</span>
+          <span>⚡ Snabb service</span>
+          <span>🎧 Personlig support</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+        <h2>Tjänster</h2>
+        <p>
+          Vi erbjuder professionell IT-support för både företag och privatpersoner.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <div class="card reveal">
+          <div class="icon">🔧</div>
+          <h3>Felsökning & Reparation</h3>
+          <p>
+            Vi löser problem med datorer, skrivare och annan IT-utrustning snabbt och effektivt.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">📶</div>
+          <h3>Nätverk & Wi-Fi</h3>
+          <p>
+            Installation och optimering av router, Wi-Fi och nätverk hemma eller på kontor.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">🛡</div>
+          <h3>IT-säkerhet</h3>
+          <p>
+            Skydda dina enheter med antivirus, säkerhetskontroller och backup-lösningar.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">☁</div>
+          <h3>Molntjänster</h3>
+          <p>
+            Hjälp med Microsoft 365, Google Workspace och säker lagring i molnet.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">🖥</div>
+          <h3>Fjärrsupport</h3>
+          <p>
+            Snabb hjälp direkt på distans utan att du behöver lämna hemmet.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon">💾</div>
+          <h3>Hårdvara & Uppgraderingar</h3>
+          <p>
+            SSD-byten, RAM-uppgraderingar och hjälp att välja rätt datorutrustning.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container about">
+
+      <div class="about-box reveal">
+
+        <div class="about-logo">
+          ÖIT
+        </div>
+
+        <h2>Östman IT</h2>
+        <p>Din lokala IT-partner</p>
+
+      </div>
+
+      <div class="about-text reveal">
+
+        <h2>
+          Teknik ska vara enkelt
+        </h2>
+
+        <p>
+          Östman IT hjälper privatpersoner och småföretag
+          med snabb, personlig och pålitlig IT-support.
+        </p>
+
+        <div class="check-list">
+
+          <div class="check">
+            <div class="check-circle"></div>
+            Snabba svarstider
+          </div>
+
+          <div class="check">
+            <div class="check-circle"></div>
+            Personlig support
+          </div>
+
+          <div class="check">
+            <div class="check-circle"></div>
+            Lokal hjälp i Örebro
+          </div>
+
+          <div class="check">
+            <div class="check-circle"></div>
+            Flexibla lösningar
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+        <h2>Hör av dig</h2>
+
+        <p>
+          Berätta vad du behöver hjälp med så återkommer vi så snabbt vi kan.
+        </p>
+      </div>
+
+      <div class="contact-cards">
+
+        <div class="contact-card reveal">
+          <h4>E-POST</h4>
+          <p>ostmanitsupport@gmail.com</p>
+        </div>
+
+        <div class="contact-card reveal">
+          <h4>TELEFON</h4>
+          <p>072-180 10 11</p>
+        </div>
+
+        <div class="contact-card reveal">
+          <h4>PLATS</h4>
+          <p>Örebro</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Östman IT — Alla rättigheter förbehållna
+  </footer>
+
+  <script>
+
+    const reveals = document.querySelectorAll('.reveal');
+
+    window.addEventListener('scroll', () => {
+
+      reveals.forEach(reveal => {
+
+        const windowHeight = window.innerHeight;
+        const revealTop = reveal.getBoundingClientRect().top;
+
+        if(revealTop < windowHeight - 100){
+          reveal.classList.add('active');
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
