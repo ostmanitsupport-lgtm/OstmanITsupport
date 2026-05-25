@@ -173,6 +173,7 @@
       text-decoration:none;
       font-weight:600;
       transition:.35s ease;
+      display:inline-block;
     }
 
     .btn-primary{
@@ -379,20 +380,25 @@
       word-break:break-word;
     }
 
-    input,
-    textarea{
-      width:100%;
-      padding:20px;
-      border-radius:18px;
-      border:1px solid #13203b;
+    .form-box{
+      max-width:800px;
+      margin:60px auto 0;
+      text-align:center;
+      padding:50px;
+      border-radius:30px;
+      border:1px solid var(--border);
       background:#071225;
-      color:white;
-      font-size:1rem;
-      outline:none;
     }
 
-    textarea{
-      resize:none;
+    .form-box h3{
+      font-size:2rem;
+      margin-bottom:20px;
+    }
+
+    .form-box p{
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:35px;
     }
 
     footer{
@@ -828,31 +834,24 @@
 
       </div>
 
-      <form class="reveal" style="
-        max-width:800px;
-        margin:60px auto 0;
-        display:flex;
-        flex-direction:column;
-        gap:20px;
-      ">
+      <div class="form-box reveal">
 
-        <input type="text" placeholder="Ditt namn">
-        <input type="email" placeholder="Din e-post">
+        <h3>Skicka en förfrågan</h3>
 
-        <textarea rows="6" placeholder="Beskriv problemet..."></textarea>
+        <p>
+          Fyll i vårt formulär och beskriv vad du behöver hjälp med,
+          så återkommer vi så snabbt vi kan.
+        </p>
 
-        <button
-          type="submit"
+        <a
+          href="https://forms.gle/NKK4Z4RKxvCJdnyb8"
+          target="_blank"
           class="btn btn-primary"
-          style="
-            border:none;
-            cursor:pointer;
-            width:fit-content;
-          ">
-          Skicka förfrågan
-        </button>
+        >
+          Öppna formuläret
+        </a>
 
-      </form>
+      </div>
 
     </div>
 
